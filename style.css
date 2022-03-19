@@ -1,0 +1,80 @@
+html {
+	font-family:  'Lato', serif;
+}
+
+.jumbotron {
+	background-size: cover;
+	background-image:  linear-gradient(to bottom, rgba(252, 211, 64, 0.555) 0%,rgba(252, 157, 84, 0.151) 100%), 
+	url("img/hangar_arcadia.jpg");
+	padding-top: 5%;
+	padding-bottom: 1%;
+	color: azure;
+}
+
+.calculatorBox{
+	background-color: rgba(252, 157, 84, 0.25);
+	border-radius: 2em 2em 2em 2em;
+	align-content: center;
+}
+.img-calc{
+	border-radius: 50%;
+	width: 500px !important;
+	text-align: center;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.img-fluid{
+	max-height: 100%;
+}
+
+#carouselSlides{
+	height: 500px !important; 
+	width: 700px !important;
+}
+
+.calculator{
+	align-content: center;
+}
+
+.calculatorBox h3{
+	text-align: center;
+}
+
+.climbingStudy{
+	padding: 5%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+}
+
+.calculatedVGrade{
+	font-size: 4em;
+	font-weight: bolder;
+}
+
+#climbingCalculatorTitle,#dataSlides{
+	font-size: 3em;
+	text-align: center;
+}
+
+#footer {
+	position: relative;
+	margin-top: -180px;
+	height: 180px;
+	clear: both;
+	background-color: red;
+  }

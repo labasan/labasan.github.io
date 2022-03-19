@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+
+<head>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand ms-3 text-muted" href="index.html">Climbing Grade Calculator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#l">Climbing Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about_me.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="https://docs.google.com/spreadsheets/d/1ZJztDoEqDZSu1qRuXcBi7T6x5J9ehvrYMfWhUg-YL38/edit?usp=sharing">Data</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container climbingStudy">
+            <div class="row">
+                <article>
+                    <h1> Grip Harder, Climber Stronger?</h1>
+                    <h2> A Study on Grip Strength and Climbing Grade</h2>
+                    <section>
+                        <h3>Purpose and Hypothesis</h3>
+                        <p>With climbing becoming more and more popular with Academy Award Winning Free Solo and the 2021 Tokyo Olympics featuring climbing, grip strength and rock climbers have become synonymous. Grip strength in many eyes is necessary for someone to become a good climber as they need to “grip” such impossible holds. While this is not wrong, what else goes into becoming a good climber. Climbing skill can be attributed to technique and physical training. Within physical training, there are three main categories of strength: Finger Strength, Arm/Upper Body Strength, Core Strength. “The stronger your fingers are, the poorer the holds you can hold, and the less you’ll use of your maximum strength per hold”. Your core is used to “maintain body position when moving an arm or a leg,maintain pressure on footholds during steep climbing, and to stop a swing when your feet do slip during steep climbing.” (The Climbing Bible) Arm and upper body strength generally refers to your biceps and lats for pulling and squeezing which is where grip strength lies. As just one subcategory of strength in rock climbing, is grip strength truly as important as many would think?   
+                        </p>
+                        <p>
+                            I started this climbing study to seek out the answer to that question, does grip strength really affect how well someone climbs? My initial thoughts were yes. It must be as grip strength is mandatory for grabbing pinch holds in climbing. While checking for grip strength, would there also be a correlation between someone’s experience along with grip strength affects how they climb? Experience implies better technique and as we know, technique is important to climbing so I would assume yes to this question as well. As a sport with both men and women both tackling the world’s hardest climbs, will there be any difference between how grip strength and experience affects men compared to women? I thought men would be more reliant on strength as they typically have more muscle mass than women. Lastly while surveying across different gyms, will certain gyms be “harder” or “soft” compared to the others. I typically normally struggle at Orange so I always perceive it as “harder”. However, I feel as if I struggle to figure out beta there more so than other gyms.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>How Study Was Conducted</h3>
+                        <p>The survey was relatively easy and fun to conduct. While going to my three local Hangar 18 gyms in Rancho Cucamonga, Upland, and Orange I took a hand dynamometer along with me and asked people to squeeze the device whenever I was not climbing. <img src="img/hand_dynanometer.jpg" style="height: 200px; width: auto; float: right;"> I would check both hands and ask the many questions; the most important being their highest grade climbed, weight, experience, and what part of their session: Start, Middle, or End. All data is publically available on the “Data” tab. It is important to note that there are flaws in surveying. The samples are biased as I would pick who to survey whether it be who was the most convenient, those in groups, people climbing the hardest grades, etc. The “Start, Middle, End” is very subjective as how people’s bodies warm up varies. Likewise, not every session as some sessions people climb harder such that their forearms are more sore at the end. Highest grade was also vaguely asked. Sometimes I specified “indoor” as maybe did not seem implied. Also, when comparing gyms I did not specify the highest grade climbed in the gym I was surveying. Orange Hangar 18 in particular uses color grading which is a range of grades making the “highest grade” even more subjective for that particular gym. Assuming people just told their highest grade climbed anywhere, this could affect data between gyms.</p>
+                    </section>
+                    <section>
+                        <h3>Analyzing the Data</h3>
+                        <p>The goal of analyzing the data is to create a simple model that is easy to interpret and gives us insight about the data. Ideally, the model can accurately predict the grade someone climbs using their grip strength and experience. Analyzing the data of the results was all done in python in three primary steps: cleaning the data, analyzing the data, and interpreting the results. Cleaning the data will involve taking people’s raw grip strength values along with weight and part of session and creating a “Strength” value that closely depicts their grip strength.
+                        </p>
+                        <ul>
+                            <li>Before: -1.85%</li>
+                            <li>After: -4.15%</li>
+                        </ul>
+                        <p>This aligns anecdotally and would be used to determine an adjusted strength for calculation. Between gyms and sex, the patterns flucuate where sometimes there shows a higher strength at the start or end of sessions. Since the metric has high variance since "Start, Middle, End" is subjective, taking the average seems the most appropriate.</p>
+                        <p>After figuring out this true “Strength”, the first test I did was a Simple Linear Regression test plotting Strength as the x-axis and Grade as the y-axis. Linear Regression is used because it provides straight-forward and quick model that can predict grades. Here are the graphs for the major categories. All data and graphs are available on the Data tab link to the Google Sheets.</p>
+                        <div class="container">
+                            <div class="row justify-content-center">
+                            <div id="carouselSlides" class="carousel carousel-dark slide" data-interval="false">
+                                <div class="carousel-indicators">
+                                  <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                  <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                  <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                  <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                  <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                  <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h4 class="display-3">Overall</h4>
+                                    </div>
+                                    <img src="img/linear_all.png" class="d-block w-100 slides" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h4 class="display-3">Male</h4>
+                                    </div>
+                                    <img src="img/linear_male.png" class="d-block w-100 slides" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h4 class="display-3">Female</h4>
+                                    </div>
+                                    <img src="img/linear_female.png" class="d-block w-100 slides" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h4 class="display-3">Rancho</h4>
+                                    </div>
+                                    <img src="img/linear_rancho.png" class="d-block w-100 slides" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h4 class="display-3">Upland</h4>
+                                    </div>
+                                    <img src="img/linear_upland.png" class="d-block w-100 slides" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h4 class="display-3">Orange</h4>
+                                    </div>
+                                    <img src="img/linear_orange.png" class="d-block w-100 slides" alt="...">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlides" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselSlides" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                        <br>
+                        <p>It is clear in all categories that strength is a significant indicator on its own of the grade of a climber. All models except the Upland Female climbers had significant p-values.  Although it would be enough to stop here and conclude grip strength does correlate to the grade people climb, this doesn't capture experience at all which isn’t ideal. To better guess someone’s climbing grade with their grip strength, we need to consider experience into the model.</p>
+                        <p>To include experience into the model, I need to change the model from Simple Linear Regression to Multiple Linear Regression. Multiple Linear Regression is very similar to Simple except that it takes multiple parameters/vectors. In this case, the two vectors will be experience and grip strength. Since it has two vectors as the X-axis, it is not easy to graph on a 2-D graph.  Instead of pretty graphs, I will explain the significance of the data that was found. For climbers overall, these values were discovered:</p>
+                        <table class="table">
+                            <tr>
+                                <th scope="col">Climber's Group</th>
+                                <th scope="col">Strength Coeff</th>
+                                <th scope="col">Experience Coeff</th>
+                                <th scope="col">Constant</th>
+                                <th scope="col">Strength p-value</th>
+                                <th scope="col">Experience p-value</th>
+                                <th scope="col">Constant p-value</th>
+                            </tr>
+                            <tr>
+                                <td>Overall</td>
+                                <td>7.8652</td>
+                                <td>0.244</td>
+                                <td>-0.2737</td>
+                                <td>0.000</td>
+                                <td>0.000</td>
+                                <td>0.547</td>
+                            </tr>
+                            <tr>
+                                <td>Male</td>
+                                <td>6.9283</td>
+                                <td>0.2845</td>
+                                <td>0.4089</td>
+                                <td>0.000</td>
+                                <td>0.000</td>
+                                <td>0.480</td>
+                            </tr>
+                            <tr>
+                                <td>Female</td>
+                                <td>7.0362</td>
+                                <td>0.1960</td>
+                                <td>-0.0055</td>
+                                <td>0.000</td>
+                                <td>0.001</td>
+                                <td>0.955</td>
+                            </tr>
+                            <tr>
+                                <td>Rancho</td>
+                                <td>7.9731</td>
+                                <td>0.29956</td>
+                                <td>-0.4224</td>
+                                <td>0.000</td>
+                                <td>0.011</td>
+                                <td>0.549</td>
+                            </tr>
+                            <tr>
+                                <td>Upland</td>
+                                <td>8.2801</td>
+                                <td>0.1109</td>
+                                <td>0.0055</td>
+                                <td>0.000</td>
+                                <td>0.044</td>
+                                <td>0.995</td>
+                            </tr>
+                            <tr>
+                                <td>Orange</td>
+                                <td>5.3331</td>
+                                <td>0.4180</td>
+                                <td>0.7618</td>
+                                <td>0.000</td>
+                                <td>0.000</td>
+                                <td>0.337</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>The coefficient for experience and strength determines how much those values affect the grade someone would climb. Let’s say in the Simple Linear Regression model with only strength that the strength coefficient was 8. This means for every 1lb. squeezed per 1lb you weigh, you would climb V8. Therefore the higher the coefficient, the more that either experience or strength affects the grade someone would climb. Since the the Multiple Linear Regression models have two variables, the formula goes as follows:</p>
+                        <h4>Grade = (Strength Coeff)*(Strength) + (Experience Coeff)*(Experience) + Constant</h4>
+                        <br>
+                        <p>P-value was mentioned earlier but not explained. The p-value indicates the probability that a particular statistical measure of an assumed probability distribution will be greater than or equal to observed results. For example in our use case, a p-value of 0.01 means there’s a 1% chance that grip strength does not affect how well people climb. In most cases. a p-value less than 0.05 is statistically significant which is what we want when creating these models. Looking at the data of some of the more niche categories in the study, this is not the case. For example for female climbers in Upland, the p score for strength is 0.095 in the single linear regression and 0.106 in multiple linear regression. This means that between female climbers I surveyed in Upland, their grip strength was not a good indicator of the grade they climbed. This is largely because of smaller samples as it does not occur in larger cases. After the first multiple linear regression models were made, I noticed the experience p-values were not always the best. For minimal normalization, I reduced climbers with 10+ years of experience to 10 years which improved some of the models.</p>
+                        <p>Knowing about the p-value, you may notice some patterns: experience p-score is higher than grip strength and the “const” values often have p-values above 0.05. Experience having a higher p-score makes sense because intuitively not all additional years of climbing translate to improvement in technique. Presumably, you rapidly improve in the first year or two of climbing whereas improvement becomes more subtle in later years. For the constant values, they largely represent the model when the x-value (grip strength and experience) is zero. This is not a very important value in the study since it is irrelevant to consider a climber with zero grip strength. I suppose goats are capable of climbing while possessing zero grip strength.</p>
+                    </section>
+                    <section>
+                        <h3>Numbers?</h3>
+                        <p>With all of the models finalized, we can compare the coefficients between sex and gym. Overall, the coefficient of strength in multiple linear regression is larger for female climbers. This would indicate that strength affects female climbers more than male climbers. However, when investigating the difference between gyms Orange largely swings in favor of females while Rancho pulls the other way. Looking at the experience coefficient between gyms, there are also extreme patterns between the gyms. We must remember that none of the data collected for female climbers Upland has a p-value under 0.05 making it not reliable. If Orange and Rancho aligned I would have more confidence in a trend between sex since those gyms have reliable data. Given the data, I would not say there are any patterns between how experience and strength affects male and female climbers. Maybe with more data samples of female climbers across gyms, there would be better evidence. </p>
+                        <p>Next, let’s compare all climbers between gyms. With Rancho being the gym of reference, Upland relatively requires 67% less experience and 3% more strength to climb the same grade as Rancho. Since values of strength are close, this may imply that Upland grading tends to be more reliant on strength compared to Rancho. On the other hand, Orange relatively requires 40% more experience and 63% less strength to climb the same grade as Rancho. Since Rancho and Upland were close in strength yet Orange was very different, this implies Orange requires less strength than the other two. In contrast, experience plays a larger role in climbing stronger at Orange. As an example according to the model:</p>
+                        <ul>
+                            <li>A climber who climbed for 1 year and can grip 72% of their body weight would climb V5.6, V6, and V5 in Rancho Upland Orange respectively. </li>
+                            <li>After climbing for 7 years, the same climber can now grip 80% of their body weight. According to the model, now they would climb V8, V7.4, V8 in Rancho Upland Orange respectively.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Conclusion</h3>
+                        <p>So what did all the data say about my hypotheses? My main hypothesis is right, both grip strength and experience are significant indicators of the highest grade a person can climb. Great grip strength and experience in climbing really does make you climb better. Was there a difference between male and female climbers? Looking at the data, I am not confident that I found any significant data between male and female climbers. Maybe if I was able to have equal representation in data, I would see a trend indicating a difference. Was Orange really “harder” than the other gyms? When comparing Orange to Rancho and Upland, it seems like Orange requires a significantly less amount of strength than the other two. Instead, technique would be a larger factor when climbing in Orange. I think this makes sense because I feel like I struggle at Orange figuring out beta as I definitely consider myself more reliant on power than technique. Speaking to some routesetters who set or know those who set between the gyms, they can attest that Orange tends to set more technical climbs while Upland more old-school boulders with their older holds. Looking at the setting in Orange, there are typically more footholds leading to more techy style boulders as well as having more comp style boulders. As the different gyms get newer holds and route setting changes, the difference might not be as significant as it once was. With that said, I'll say my hypothesis was half right. “Harder” for me may not mean harder for everyone. Perhaps what the data really revealed is the difference in the style of setting between gyms.
+                        </p>
+                        <p>Despite the conclusion of the study, there are many important factors to consider when looking at the results. First and most importantly, grip strength isn’t the only factor in climbing skill. Many would agree that  finger and pulling strength are more important towards climbing skill as they are used more often in climbing. Grip strength tends to be a byproduct of a good climber rather than grip strength producing a good climber. If every bouldering problem had a pinch as the crux of the problem, maybe I would say otherwise. So remember that the model is not perfect and I will never claim it to be. However, it is an easy metric to measure and fun to see where you line up according to the model. I want to say thank you to all of those who participated in the survey and enjoyed the read. I hope to do something similar except measuring finger strength in the future. If anyone wants to collaborate or have any questions, all socials and my email are listed at the bottom. Grip harder and climb stronger!</p>
+                        <h4>Thank you for Reading!</h4>
+                        <h5>-Kai Labasan</h5> 
+                    </section>
+                    <section>
+                        <h4>More Interesting, Related Climbing Resources/Videos</h4>
+                        <a href="https://www.amazon.com/The-Climbing-Bible/dp/1912560704"> Checkout the Climbing Bible by Martin Mobråten and Stian Christophersen</a> 
+                        <br>
+                        <a href="https://www.amazon.com/CAMRY-Dynamometer-Strength-Measurement-Capturing/dp/B00A8K4L84"> Hand Dynanometer used for Study</a>
+                        <br>
+                        <a href="https://www.youtube.com/watch?v=qNYHXslSpDU"> What Happens To Your Body When You Climb | w/ Shauna Coxsey by Redbull</a>
+                        <br>
+                        <a href="https://latticetraining.com/assessments/">Lattice Training Assessment</a><span>(A better version of my study haha)</span>
+                        <br>
+                        <a href="https://www.youtube.com/watch?v=wS9OGHe16R4">Magnus Midtbø doing the Lattice Training Assessment</a>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-center text-white">
+        <div>
+            <section class>
+              <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/firsttrykai" role="button"
+                ><i class="fa-brands fa-twitter"></i></a>
+        
+              <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/kai-labasan-0a5aa013b/" role="button"
+                ><i class="fa-brands fa-linkedin"></i></a>
+        
+              <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/labasan" role="button"
+                ><i class="fab fa-github"></i></a>
+            </section>
+          </div>
+    </footer>
+</body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/287a171266.js" crossorigin="anonymous"></script>
+
+
+</html>
