@@ -78,3 +78,11 @@ img {
 	clear: both;
 	background-color: red;
   }
+
+section{
+	font-size: 1.2rem;
+}
+
+.faq p{
+	font-size: 1.2rem;
+}
